@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/Layout.astro';
+import { noticias } from '../../data/noticias.js';
+import styles from '../../styles/news.module.css';
+
+export async function getStaticPaths() {
+  return noticias.map((noticia) => ({
+    params: { slug: noticia.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const noticia = noticias.find((n) => n.slug === slug);
+
+if (!noticia) {
+  throw new Error("Notícia não encontrada!");
+}
+---
+
+<BaseLayout title={noticia.titulo}>
+  <article class={styles['news-article']}>
+    <h1 class={styles['news-title']}>{noticia.titulo}</h1>
+    <img 
+      src={noticia.imagem} 
+      alt={`Imagem de ${noticia.titulo}`} 
+      class={styles['news-image']} 
+    />
+    <p class={styles['news-content']}>{noticia.conteudo}</p>
+    <a href="/" class={styles['back-link']}>← Voltar para a página inicial</a>
+  </article>
+</BaseLayout>

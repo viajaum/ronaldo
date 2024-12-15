@@ -1,0 +1,19 @@
+---
+import '../styles/style.css';
+import Header from '../components/Header.astro';  // Importa o componente Header
+---
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal de Notícias</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <Header /> <!-- Exibe o header com os links -->
+    <main>
+      <slot />  <!-- Este é o conteúdo dinâmico da página -->
+    </main>
+  </body>
+</html>

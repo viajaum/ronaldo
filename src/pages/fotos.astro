@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import { fotos } from '../data/fotos.js';
+---
+
+<BaseLayout title="Galeria de Fotos">
+  <div class="gallery-container">
+    <h2 class="gallery-header">Galeria de Fotos</h2>
+    <div class="gallery-grid">
+      {fotos.map((foto) => (
+        <div class="gallery-item">
+          <a href={`/fotos/${foto.slug}`} class="gallery-link">
+            <img src={`/images/${foto.imagem}`} class="gallery-image" />
+            
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

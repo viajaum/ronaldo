@@ -1,0 +1,48 @@
+/* Estilo para limitar a largura e centralizar o conteúdo */
+.news-article {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  .news-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .news-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .news-content {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+  .back-link {
+    display: block; /* Faz o link ocupar a largura total disponível */
+    padding: 10px 20px;
+    margin-top: 30px;
+    font-size: 1rem;
+    color: white;
+    background-color: #4c019a;  /* Cor do botão */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Garante que o texto dentro do link fique centralizado */
+    width: fit-content; /* Ajusta o tamanho do botão para o conteúdo */
+    margin-left: auto; /* Centraliza o botão */
+    margin-right: auto; /* Centraliza o botão */
+  }
+  
+  .back-link:hover {
+    background-color: #2a0057;  /* Cor do botão ao passar o mouse */
+  }
+  

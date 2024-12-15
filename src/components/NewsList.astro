@@ -1,0 +1,23 @@
+---
+import { noticias } from '../data/noticias.js';
+console.log(noticias); // Testando o conteúdo do array
+---
+
+<div>
+  <h2 class="news-header">Notícias</h2>
+  <ul class="news-list">
+    {noticias?.map((noticia) => (
+      <li class="news-item">
+        <a href={`/noticias/${noticia.slug}`} class="news-link">
+          <div class="news-content">
+            <img src={`/images/${noticia.slug}.jpg`} alt={`Imagem de ${noticia.titulo}`} class="news-image" />
+            <div class="news-text">
+              <h3 class="news-title">{noticia.titulo}</h3>
+              <p class="news-summary">{noticia.resumo}</p>
+            </div>
+          </div>
+        </a>
+      </li>
+    )) || <p>Não há notícias disponíveis.</p>}
+  </ul>
+</div>

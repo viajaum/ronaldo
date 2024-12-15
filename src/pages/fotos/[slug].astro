@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/Layout.astro';
+import { fotos } from '../../data/fotos.js'; // Supondo que você tenha um arquivo de dados de fotos
+
+// Exportar getStaticPaths para gerar todas as páginas dinamicamente
+export function getStaticPaths() {
+  return fotos.map((foto) => ({
+    params: { slug: foto.slug },
+  }));
+}
+
+// Pega o slug da URL
+const { slug } = Astro.params;
+const foto = fotos.find((f) => f.slug === slug);
+
+if (!foto) {
+  throw new Error("Foto não encontrada!");
+}
+---
+
+<BaseLayout>
+  <div class="photo-container">
+    <img 
+      src={`/images/${foto.imagem}`} 
+      class="photo-image" 
+    />
+    <a href="/fotos" class="back-link">← Voltar para a galeria</a>
+  </div>
+</BaseLayout>
